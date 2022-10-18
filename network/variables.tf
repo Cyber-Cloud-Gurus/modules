@@ -45,7 +45,7 @@ variable "nsgname" {
   type        = string
   description = "NSG Name"
 }
-variable "publicip" {
+/*variable "publicip" {
   type        = string
   description = "VM public IP Address"
-}
+}*/
