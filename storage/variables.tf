@@ -29,14 +29,14 @@ variable "storacchttps" {
   type        = string
   description = "Storage Account HTTPS Only"
 }
-variable "nrda" {
+/*variable "nrda" {
   type        = string
   description = "Network Rules Default Action"
 }
 variable "nriprule" {
   type        = list(string)
   description = "Network IP Rules"
-}
+}*/
 variable "containername" {
   type        = string
   description = "Storage Account Container Name"
