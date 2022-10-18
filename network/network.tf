@@ -22,13 +22,13 @@ resource "azurerm_subnet" "subnet" {
 
 }
 #Create Public IP Address
-resource "azurerm_public_ip" "public-ip" {
+/*resource "azurerm_public_ip" "public-ip" {
   name                = var.publicip
   resource_group_name = var.rgname
   location            = var.location
   allocation_method   = var.ipassigntype
 
-}
+}*/
 
 #Create Network Interface
 resource "azurerm_network_interface" "vm-nic" {
@@ -40,7 +40,7 @@ resource "azurerm_network_interface" "vm-nic" {
     name                          = var.privateip
     subnet_id                     = azurerm_subnet.subnet.id
     private_ip_address_allocation = var.ipassigntype
-    public_ip_address_id          = azurerm_public_ip.public-ip.id
+    #public_ip_address_id          = azurerm_public_ip.public-ip.id
 
   }
 }
