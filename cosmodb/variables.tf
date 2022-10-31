@@ -19,4 +19,7 @@ variable "failover_location" {
   type        = string
   description = "The name of Cosmo DB failover location"
 }
-
+variable "sq_db_name" {
+  type        = string
+  description = "The name of Cosmo DB account name"
+}

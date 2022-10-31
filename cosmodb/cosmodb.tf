@@ -23,7 +23,7 @@ resource "azurerm_cosmosdb_account" "cosmo_db_acc {
 }
 
 resource "azurerm_cosmosdb_sql_database" "db" {
-  name = "cosmo_db_sql"
+  name = var.sq_db_name
   resource_group_name = "${azurerm_cosmosdb_account.cosmo_db_acc.resource_group_name}"
   account_name = "${azurerm_cosmosdb_account.cosmo_db_acc.name}"
 }
