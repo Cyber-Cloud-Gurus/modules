@@ -1,4 +1,4 @@
-resource "azurerm_cosmosdb_account" "cosmo_db_acc {
+resource "azurerm_cosmosdb_account" "cosmo_db_acc" {
   name                = var.cosmo_db_acount_name
   location            = var.location
   resource_group_name = var.rgname
