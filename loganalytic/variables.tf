@@ -22,11 +22,11 @@ variable "lawsreten" {
   description = "Log Analytic Workspace Retention"
 }
 variable "internet_ingestion_enabled" {
-  type        = number
+  type        = bool
   description = "Ingest logs from internet"
 }
 variable "internet_query_enabled" {
-  type        = number
+  type        = bool
   description = "Query logs from internet"
 }
 
