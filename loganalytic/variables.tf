@@ -21,3 +21,12 @@ variable "lawsreten" {
   type        = number
   description = "Log Analytic Workspace Retention"
 }
+variable "internet_ingestion_enabled" {
+  type        = number
+  description = "Ingest logs from internet"
+}
+variable "internet_query_enabled" {
+  type        = number
+  description = "Query logs from internet"
+}
+

@@ -7,6 +7,8 @@ resource "azurerm_log_analytics_workspace" "laws" {
   resource_group_name = var.rgname
   sku                 = var.lawssku
   retention_in_days   = var.lawsreten
+  internet_ingestion_enabled = var.internet_ingestion_enabled
+  internet_query_enabled     = var.internet_query_enabled 
 
   depends_on = [data.azurerm_resource_group.rg-name]
 }
