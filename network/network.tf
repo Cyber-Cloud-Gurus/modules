@@ -20,6 +20,7 @@ resource "azurerm_subnet" "subnet" {
   virtual_network_name = var.vnetname
   service_endpoints    = var.sendpoint
 
+ depends_on = [azurerm_virtual_network.vnet]
 }
 #Create Public IP Address
 /*resource "azurerm_public_ip" "public-ip" {
