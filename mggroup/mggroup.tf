@@ -15,7 +15,7 @@ resource "azurerm_management_group" "region-mg" {
 resource "azurerm_management_group" "legal-mg" {
   for_each = toset(var.region)
   display_name = "MG-${var.shortcompanyname}-${each.value}-${var.legal}"
-  parent_management_group_id = azurerm_management_group.region-mg.id
+  parent_management_group_id = azurerm_management_group.region-mg[each.key].id
   depends_on = [
     azurerm_management_group.region-mg
   ]
@@ -23,7 +23,7 @@ resource "azurerm_management_group" "legal-mg" {
 resource "azurerm_management_group" "hr-mg" {
   for_each = toset(var.region)
   display_name = "MG-${var.shortcompanyname}-${each.value}-${var.hr}"
-  parent_management_group_id = azurerm_management_group.region-mg.id
+  parent_management_group_id = azurerm_management_group.region-mg[each.key].id
   depends_on = [
     azurerm_management_group.region-mg
   ]
