@@ -27,20 +27,20 @@ resource "azurerm_management_group" "corp" {
     ]
   
 }
+resource "azurerm_management_group" "it" {
+    display_name = "mg-${var.shortcompanyname}-${var.it}"
+    parent_management_group_id = azurerm_management_group.landingzones-mg.id
+    depends_on = [
+      azurerm_management_group.landingzones-mg
+    ]
+  
+}
 resource "azurerm_management_group" "online" {
     display_name = "mg-${var.shortcompanyname}-${var.online}"
     parent_management_group_id = azurerm_management_group.landingzones-mg.id
     depends_on = [
       azurerm_management_group.landingzones-mg
     ]
-}
-resource "azurerm_management_group" "sap" {
-    display_name = "mg-${var.shortcompanyname}-${var.sap}"
-    parent_management_group_id = azurerm_management_group.landingzones-mg.id
-    depends_on = [
-      azurerm_management_group.landingzones-mg
-    ]
-  
 }
 resource "azurerm_management_group" "platform" {
     display_name = "mg-${var.shortcompanyname}-${var.platform}"
