@@ -26,7 +26,7 @@ variable "hr" {
 variable "landingzones" {
   type = string
 }
-variable "IT" {
+variable "it" {
   type = string
 }
 variable "online" {
