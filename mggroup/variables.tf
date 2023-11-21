@@ -10,7 +10,7 @@ variable "child1" {
   type        = string
   description = "Child Management Group"
 }
-variable "parent2" {
+/*variable "parent2" {
   type        = string
   description = "Parent Management Group"
 }
@@ -33,4 +33,4 @@ variable "parent4" {
 variable "child4" {
   type        = string
   description = "Child Management Group"
-}
+}*/
