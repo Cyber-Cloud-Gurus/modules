@@ -2,35 +2,48 @@ variable "tags" {
   type = map(string)
   description = "Tags for Resources Management "
 }
-variable "parent1" {
-  type        = string
-  description = "Parent Management Group"
+variable "fullcompanyname" {
+  type = string
 }
-variable "child1" {
-  type        = string
-  description = "Child Management Group"
+variable "shortcompanyname" {
+  type = string
 }
-/*variable "parent2" {
-  type        = string
-  description = "Parent Management Group"
+variable "region" {
+type = list(string)
 }
-variable "child2" {
-  type        = string
-  description = "Child Management Group"
+variable "CompanyManagementGroupName" {
+  type = string
 }
-variable "parent3" {
-  type        = string
-  description = "Parent Management Group"
+variable "corp" {
+  type = string
 }
-variable "child3" {
-  type        = string
-  description = "Child Management Group"
+variable "legal" {
+  type = string
 }
-variable "parent4" {
-  type        = string
-  description = "Parent Management Group"
+variable "hr" {
+     type = string
+ } 
+variable "landingzones" {
+  type = string
 }
-variable "child4" {
-  type        = string
-  description = "Child Management Group"
-}*/
+variable "IT" {
+  type = string
+}
+variable "online" {
+  type = string
+}
+variable "platform" {
+    type = string
+ } 
+variable "connectivity" {
+     type = string
+ } 
+variable "identity" {
+    type = string
+ }
+variable "management" {
+    type = string
+ }
+ variable "sandboxes" {
+    type = string
+ }
