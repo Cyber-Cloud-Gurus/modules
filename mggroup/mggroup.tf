@@ -6,7 +6,7 @@ resource "azurerm_management_group" "parent" {
 }
 
 resource "azurerm_management_group" "child" {
-  display_name               = va.child1
+  display_name               = var.child1
   parent_management_group_id = azurerm_management_group.parent.id
 
   }
