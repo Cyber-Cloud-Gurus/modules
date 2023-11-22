@@ -12,7 +12,7 @@ variable "region" {
 type = list(string)
 }
 variable "CompanyManagementGroupName" {
-  type = list(string)
+  type = string
 }
 /*variable "corp" {
   type = string
