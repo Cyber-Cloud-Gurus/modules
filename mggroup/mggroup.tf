@@ -18,8 +18,8 @@ locals {
   reg_bu_loc = distinct(flatten([
     for region in local.reg_loc : [
       for region_bu in local.reg_bu : {
-        reg_loc = var.var.region
-        reg_bu  = var.var.region_bu
+        reg_loc = var.region
+        reg_bu  = var.region_bu
      } 
    ]
   ]))
