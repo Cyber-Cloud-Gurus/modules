@@ -12,19 +12,22 @@ variable "region" {
 type = list(string)
 }
 variable "CompanyManagementGroupName" {
-  type = string
+  type = list(string)
 }
-variable "corp" {
+/*variable "corp" {
   type = string
+}*/
+variable "region_bu" {
+  type = list(string)
 }
-variable "legal" {
-  type = string
-}
-variable "hr" {
+/*variable "hr" {
      type = string
- } 
+ }
 variable "landingzones" {
   type = string
+}
+variable "landingzones_bu" {
+  type = list(string)
 }
 variable "it" {
   type = string
@@ -35,7 +38,10 @@ variable "online" {
 variable "platform" {
     type = string
  } 
-variable "connectivity" {
+variable "platform_bu" {
+    type = list(string)
+ } 
+/*variable "connectivity" {
      type = string
  } 
 variable "identity" {
@@ -46,4 +52,4 @@ variable "management" {
  }
  variable "sandboxes" {
     type = string
- }
+ }*/
