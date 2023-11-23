@@ -23,12 +23,8 @@ variable "region_bu" {
       {
         reg  = "IR"
         bu   = ["IT","Marketing"]
-          },
-      {
-        reg  = "SW"
-        bu   = ["IT","Marketing"]
-        }
-]
+          }
+      ]
 }
 /*variable "hr" {
      type = string
