@@ -19,6 +19,16 @@ variable "region" {
 }*/
 variable "region_bu" {
   type = list(object({}))
+  default =  [
+      {
+        reg  = "IR"
+        bu   = ["IT","Marketing"]
+          },
+      {
+        reg  = "SW"
+        bu   = ["IT","Marketing"]
+        }
+]
 }
 /*variable "hr" {
      type = string
