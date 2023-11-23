@@ -8,8 +8,8 @@ variable "fullcompanyname" {
 variable "shortcompanyname" {
   type = string
 }
-variable "region" {
-type = list(string)
+variable "region_bu" {
+  type = list(object({}))
 }
 variable "CompanyManagementGroupName" {
   type = string
