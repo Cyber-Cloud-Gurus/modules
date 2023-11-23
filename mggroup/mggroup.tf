@@ -15,7 +15,7 @@ resource "azurerm_management_group" "region-mg" {
 
 resource "azurerm_management_group" "region-bu" {
   for_each = { for entry in var.region_bu : entry.reg => entry }
-  display_name = "MG-${var.shortcompanyname}-${each.key.reg}-${each.key.bu}"
+  display_name = "MG-${var.shortcompanyname}-${each.value.rg}-${each.key}"
   parent_management_group_id = azurerm_management_group.region-mg[each.key].id
   depends_on = [
     azurerm_management_group.region-mg
