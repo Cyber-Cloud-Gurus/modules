@@ -14,9 +14,16 @@ resource "azurerm_management_group" "region-mg" {
 }
 
 resource "azurerm_management_group" "region-bu" {
-  for_each = toset(var.region_bu)
+   for_each = {
+    for region in var.regions :
+    for bu in var.business_units :
+    "${region}-${bu}" => {
+      region = region
+      bu     = bu
+    }
+   }
   display_name = "MG-${var.shortcompanyname}-${each.value}"
-  parent_management_group_id = azurerm_management_group.region-mg[each.key].id
+  parent_management_group_id = azurerm_management_group.region-bu[each.key].id
   depends_on = [
     azurerm_management_group.region-mg
   ]

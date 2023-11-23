@@ -14,10 +14,24 @@ variable "CompanyManagementGroupName" {
 variable "region" {
   type = list(string)
 }
+variable "regions" {
+  type = set(string)
+}
+
+variable "business_units" {
+  type = set(string)
+}
+variable "region_bu_mapping" {
+  type = map(set(string))
+  default = {
+    "us-west1" = ["finance", "marketing"],
+    "us-east1" = ["sales", "engineering"],
+  }
+}
 /*variable "corp" {
   type = string
 }*/
-variable "region_bu" {
+/*variable "region_bu" {
 type = list(string)
 }
 /*variable "hr" {
