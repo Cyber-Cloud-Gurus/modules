@@ -20,6 +20,9 @@ variable "corp" {
 variable "hr" {
      type = string
  }
+ variable "legal" {
+  type = string
+}
 variable "landingzones" {
   type = string
 }
