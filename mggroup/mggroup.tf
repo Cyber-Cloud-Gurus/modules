@@ -15,11 +15,9 @@ resource "azurerm_management_group" "region-mg" {
 
 resource "azurerm_management_group" "region-bu" {
   for_each = {
-    for region in var.regions :
-    for bu in var.business_units :
-    "${region}-${bu}" => {
-      region = region
-      bu     = bu
+    for key, value in var.region_bu_mapping : "${key}-${join("-", value)}" => {
+      region = key
+      bu     = value
     }
   }
  
