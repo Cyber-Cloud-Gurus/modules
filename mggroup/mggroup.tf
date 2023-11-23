@@ -12,24 +12,7 @@ resource "azurerm_management_group" "region-mg" {
     azurerm_management_group.parent-ccg
   ]
 }
-
-resource "azurerm_management_group" "region-bu" {
-  for_each = {
-    for key, value in var.region_bu_mapping : "${key}-${join("-", value)}" => {
-      region = key
-      bu     = value
-    }
-  }
- 
-  display_name = "MG-${var.shortcompanyname}-${each.value.region}-${each.value.bu}"
-  parent_management_group_id = azurerm_management_group.region-bu[each.value.region].id
-
-  depends_on = [
-    azurerm_management_group.region-bu
-  ]
-}
-
-/*resource "azurerm_management_group" "hr-mg" {
+resource "azurerm_management_group" "hr-mg" {
   for_each = toset(var.region)
   display_name = "MG-${var.shortcompanyname}-${each.value}-${var.hr}"
   parent_management_group_id = azurerm_management_group.region-mg[each.key].id
@@ -39,14 +22,6 @@ resource "azurerm_management_group" "region-bu" {
 }
 resource "azurerm_management_group" "landingzones-mg" {
   display_name = "MG-${var.shortcompanyname}-${var.landingzones}"
-  parent_management_group_id = azurerm_management_group.parent-ccg.id
-  depends_on = [
-    azurerm_management_group.parent-ccg
-  ]
-}
-resource "azurerm_management_group" "landingzones-bu" {
-  for_each = toset(var.rlandingzones-bu)
-  display_name = "MG-${var.shortcompanyname}-${each.value}-${var.landingzones}"
   parent_management_group_id = azurerm_management_group.parent-ccg.id
   depends_on = [
     azurerm_management_group.parent-ccg
@@ -113,4 +88,4 @@ resource "azurerm_management_group" "sandboxes" {
       azurerm_management_group.parent-ccg
     ]
   
-}*/
+}
