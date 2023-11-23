@@ -17,17 +17,11 @@ variable "region" {
 variable "corp" {
   type = string
 }
-variable "region_bu" {
-type = list(string)
-}
 variable "hr" {
      type = string
  }
 variable "landingzones" {
   type = string
-}
-variable "landingzones_bu" {
-  type = list(string)
 }
 variable "it" {
   type = string
@@ -37,9 +31,6 @@ variable "online" {
 }
 variable "platform" {
     type = string
- } 
-variable "platform_bu" {
-    type = list(string)
  } 
 variable "connectivity" {
      type = string
