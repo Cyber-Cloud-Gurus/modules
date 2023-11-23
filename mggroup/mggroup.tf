@@ -22,7 +22,6 @@ locals {
 }
 resource "azurerm_management_group" "region-bu" {
   for_each = local.reg_all
-  for_each =
   display_name = "MG-${var.shortcompanyname}-${each.value.region}-${each.value.region_bu}"
   parent_management_group_id = azurerm_management_group.region-mg[each.key].id
   depends_on = [
