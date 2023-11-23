@@ -12,21 +12,10 @@ resource "azurerm_management_group" "region-mg" {
     azurerm_management_group.parent-ccg
   ]
 }
-locals {
-  reg_loc = var.region
-  reg_bu  = var.region_bu
-  reg_bu_loc = distinct(flatten([
-    for region in local.reg_loc : [
-      for region_bu in local.reg_bu : {
-        reg_loc = var.region
-        reg_bu  = var.region_bu
-     } 
-   ]
-  ]))
-}
+
 resource "azurerm_management_group" "region-bu" {
-  for_each = {for entry in local.reg_bu_loc:"${entry.reg_loc}.${entry.reg_bu}" => entry } 
-  display_name = "MG-${var.shortcompanyname}-${each.value.reg_loc}-${each.value.reg_bu}"
+  for_each = toset(var.region_bu)
+  display_name = "MG-${var.shortcompanyname}-${each.value}"
   parent_management_group_id = azurerm_management_group.region-mg[each.key].id
   depends_on = [
     azurerm_management_group.region-mg
