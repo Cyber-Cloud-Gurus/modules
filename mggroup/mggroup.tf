@@ -25,7 +25,7 @@ resource "azurerm_management_group" "region-bu" {
   parent_management_group_id = azurerm_management_group.region-bu[each.value.region].id
 
   depends_on = [
-    azurerm_management_group.region-mg
+    azurerm_management_group.region-bu
   ]
 }
 
