@@ -14,20 +14,21 @@ resource "azurerm_management_group" "region-mg" {
 }
 
 resource "azurerm_management_group" "region-bu" {
-   for_each = {
-    for region in var.regions :
-    for bu in var.business_units :
-    "${region}-${bu}" => {
-      region = region
-      bu     = bu
+  for_each = {
+    for key, value in var.region_bu_mapping : "${key}-${join("-", value)}" => {
+      region = key
+      bu     = value
     }
-   }
-  display_name = "MG-${var.shortcompanyname}-${each.value}"
-  parent_management_group_id = azurerm_management_group.region-bu[each.key].id
+  }
+ 
+  display_name = "MG-${var.shortcompanyname}-${each.value.region}-${each.value.bu}"
+  parent_management_group_id = azurerm_management_group.region-mg[each.value.region].id
+
   depends_on = [
     azurerm_management_group.region-mg
   ]
 }
+
 /*resource "azurerm_management_group" "hr-mg" {
   for_each = toset(var.region)
   display_name = "MG-${var.shortcompanyname}-${each.value}-${var.hr}"
