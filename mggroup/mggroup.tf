@@ -12,14 +12,7 @@ resource "azurerm_management_group" "region-mg" {
     azurerm_management_group.parent-ccg
   ]
 }
-locals {
-  reg_all = {for name, region_bu in var.region_bu: region_bu.bu  
-             => {
-              "region" = region
-               "region_bu" = var.region_bu
-            }
-           }
-}
+
 resource "azurerm_management_group" "region-bu" {
   for_each     = {for region_bu in var.region_bu:  region_bu.reg => region_bu }
   display_name = "MG-${var.shortcompanyname}-${each.value.reg}-${each.value.bu}"
