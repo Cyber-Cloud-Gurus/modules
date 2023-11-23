@@ -16,7 +16,7 @@ locals {
   reg_all = {for idx, region in var.region: 
             region => {
               "region" = region
-               region_bu = var.region_bu[idx]
+               region_bu = {[var.region_bu[idx]]}
             }
            }
 }
