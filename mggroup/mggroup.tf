@@ -22,7 +22,7 @@ resource "azurerm_management_group" "region-bu" {
   }
  
   display_name = "MG-${var.shortcompanyname}-${each.value.region}-${each.value.bu}"
-  parent_management_group_id = azurerm_management_group.region-mg[each.value.region].id
+  parent_management_group_id = azurerm_management_group.region-bu[each.value.region].id
 
   depends_on = [
     azurerm_management_group.region-mg
