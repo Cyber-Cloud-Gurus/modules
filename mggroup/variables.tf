@@ -18,7 +18,7 @@ variable "region" {
   type = string
 }*/
 variable "region_bu" {
-  type = list(string)
+  type = list(object({}))
 }
 /*variable "hr" {
      type = string
