@@ -18,10 +18,7 @@ variable "region" {
   type = string
 }*/
 variable "region_bu" {
-type = list(object({
-     reg = string,
-     bu  = list(string)
-}))  
+type = list(string)
 }
 /*variable "hr" {
      type = string
