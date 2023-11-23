@@ -11,6 +11,9 @@ variable "shortcompanyname" {
 variable "CompanyManagementGroupName" {
   type = string
 }
+variable "region" {
+  type = list(string)
+}
 /*variable "corp" {
   type = string
 }*/
