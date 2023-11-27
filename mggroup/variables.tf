@@ -17,33 +17,21 @@ variable "region" {
 variable "corp" {
   type = string
 }
-variable "hr" {
-     type = string
+variable "bu" {
+    type = list(string)
  }
- variable "legal" {
-  type = string
-}
 variable "landingzones" {
   type = string
 }
-variable "it" {
-  type = string
-}
-variable "online" {
-  type = string
+variable "lz_bu" {
+  type = list(string)
 }
 variable "platform" {
     type = string
  } 
-variable "connectivity" {
-     type = string
+variable "plat_bu" {
+      type = list(string)
  } 
-variable "identity" {
-    type = string
- }
-variable "management" {
-    type = string
- }
  variable "sandboxes" {
     type = string
  }
