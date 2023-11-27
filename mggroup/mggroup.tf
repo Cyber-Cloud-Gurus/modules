@@ -13,8 +13,9 @@ resource "azurerm_management_group" "region-mg" {
   ]
 }
 resource "azurerm_management_group" "landingzones-mg" {
-  display_name = "MG-${var.shortcompanyname}-${var.landingzones}"
-  parent_management_group_id = azurerm_management_group.region-mg.id
+  for_each = toset(var.region)
+  display_name = "MG-${var.shortcompanyname}-${var.landingzones}-${each.value}"
+  parent_management_group_id = azurerm_management_group.region-mg[each.key]
   depends_on = [
     azurerm_management_group.region-mg
   ]
@@ -30,7 +31,7 @@ resource "azurerm_management_group" "lz-bu-mg" {
 resource "azurerm_management_group" "corp-mg" {
     for_each = toset(var.region)
     display_name = "MG-${var.shortcompanyname}-${var.corp}-${each.value}"
-    parent_management_group_id = azurerm_management_group.region-mg.id
+    parent_management_group_id = azurerm_management_group.region-mg[each.key]
     depends_on = [
       azurerm_management_group.region-mg
     ]
@@ -46,7 +47,7 @@ resource "azurerm_management_group" "corp-mg" {
 resource "azurerm_management_group" "platform-mg" {
     for_each = toset(var.region)
     display_name = "MG-${var.shortcompanyname}-${var.platform}-${each.value}"
-    parent_management_group_id = azurerm_management_group.region-mg.id
+    parent_management_group_id = azurerm_management_group.region-mg[each.key]
     depends_on = [
       azurerm_management_group.region-mg
     ]
@@ -63,7 +64,7 @@ resource "azurerm_management_group" "plat_bu" {
 resource "azurerm_management_group" "sandboxes" {
    for_each = toset(var.region)
     display_name = "MG-${var.shortcompanyname}-${var.sandboxes}-${each.value}"
-    parent_management_group_id = azurerm_management_group.region-mg.id
+    parent_management_group_id = azurerm_management_group.region-mg[each.key]
     depends_on = [
       azurerm_management_group.region-mg
     ]
