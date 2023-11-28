@@ -14,14 +14,14 @@ variable "CompanyManagementGroupName" {
 variable "region" {
   type = list(string)
 }
-variable "corp" {
+variable "landingzones" {
+  type = string
+}
+/*variable "corp" {
   type = string
 }
 variable "bu" {
     type = list(string)
- }
-variable "landingzones" {
-  type = string
 }
 variable "lz_bu" {
   type = list(string)
@@ -34,4 +34,4 @@ variable "plat_bu" {
  } 
  variable "sandboxes" {
     type = string
- }
+ }*/
