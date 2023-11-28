@@ -17,10 +17,10 @@ variable "region" {
 variable "landingzones" {
   type = string
 }
-/*variable "corp" {
+variable "corp" {
   type = string
 }
-variable "bu" {
+/*variable "bu" {
     type = list(string)
 }
 variable "lz_bu" {
