@@ -23,7 +23,7 @@ resource "azurerm_management_group" "landingzones-mg" {
 resource "azurerm_management_group" "lz-bu-mg" {
   for_each = toset(var.lz_bu)
   display_name = "MG-${var.shortcompanyname}-${each.value}"
-  parent_management_group_id = azurerm_management_group.landingzones-mg[each.key].id
+  parent_management_group_id = azurerm_management_group.landingzones-mg.id
   depends_on = [
     azurerm_management_group.landingzones-mg
   ]
