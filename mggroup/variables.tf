@@ -20,18 +20,18 @@ variable "landingzones" {
 variable "corp" {
   type = string
 }
-variable "bu" {
+/*variable "bu" {
     type = list(string)
 }
 variable "lz_bu" {
   type = list(string)
-}
+}*/
 variable "platform" {
     type = string
  } 
-variable "plat_bu" {
+/*variable "plat_bu" {
       type = list(string)
- }
+ }*/
  variable "sandboxes" {
     type = string
  }
