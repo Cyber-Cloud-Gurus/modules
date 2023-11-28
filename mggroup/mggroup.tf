@@ -41,7 +41,7 @@ resource "azurerm_management_group" "corp-mg" {
   display_name = "MG-${var.shortcompanyname}-${each.value}"
   parent_management_group_id = azurerm_management_group.corp-mg[each.key]
   depends_on = [
-    azurerm_management_group.corp-mg
+    azurerm_management_group.corp-mg[each.key]
   ]
 }
 resource "azurerm_management_group" "platform-mg" {
@@ -54,10 +54,11 @@ resource "azurerm_management_group" "platform-mg" {
   
 }
 resource "azurerm_management_group" "plat_bu" {
+  for_each = toset(var.plat_bu)
     display_name = "mg-${var.shortcompanyname}-${each.value}"
     parent_management_group_id = azurerm_management_group.platform-mg[each.key]
     depends_on = [
-      azurerm_management_group.platform-mg
+      azurerm_management_group.platform-mg[each.key]
     ]
   
 }
